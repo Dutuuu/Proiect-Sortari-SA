@@ -78,3 +78,23 @@ def counting_sort(array):#O[n+k]
     for i in range(len(arr)):
         arr[i]=output[i]
     return arr
+def shell_sort(arr_input):
+    arr = arr_input.copy()
+    n = len(arr)
+    
+    gap = n // 2
+    
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+        
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+                
+            arr[j] = temp
+            
+        gap //= 2
+        
+    return arr
