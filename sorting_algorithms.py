@@ -1,3 +1,4 @@
+#Algoritmi lenti
 def bubble_sort(arr): #O[n^2]
     arr = arr.copy() #copie pentru a nu modifica lista originala
     n = len(arr)
@@ -58,6 +59,8 @@ def insertion_sort(array):  #O[n^2]
             j -= 1 
         arr[j + 1] = key
     return arr
+
+#Algoritmi speciali
 def counting_sort(array):#O[n+k]
     arr=array.copy()
     if not arr:
@@ -98,3 +101,43 @@ def shell_sort(arr_input):
         gap //= 2
         
     return arr
+
+#Algoritmi rapizi
+
+def native_sort(array): #O[n log n] scaneaza lista dupa bucati gata sortate si le uneste
+    arr = array.copy()
+    arr.sort()
+    return arr
+def merge_sort(arr_input): # O(n log n)
+    arr = arr_input.copy()
+    _merge_sort_recursive(arr)
+    return arr
+
+def _merge_sort_recursive(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        L = arr[:mid]
+        R = arr[mid:]
+
+        _merge_sort_recursive(L)
+        _merge_sort_recursive(R)
+
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
