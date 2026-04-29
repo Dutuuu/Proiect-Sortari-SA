@@ -28,6 +28,7 @@ algorithms = {
     "Selection Sort": sa.selection_sort,
     "Insertion Sort": sa.insertion_sort,
     "Merge Sort": sa.merge_sort,
+    "Quick Sort": sa.quick_sort,
     "Counting Sort": sa.counting_sort,
     "Shell Sort": sa.shell_sort,
     "Timsort": sa.native_sort
